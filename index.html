@@ -29,7 +29,7 @@
 
   <dialog id="product-dialog" aria-labelledby="detail-title"><div class="dialog-head"><span class="dialog-label">Ficha del producto</span><button class="close" type="button" data-close="product-dialog" aria-label="Cerrar">×</button></div><div class="detail-layout"><div class="detail-picture"><img id="detail-image" src="" alt=""></div><div class="detail-copy"><div class="eyebrow" id="detail-brand"></div><h2 id="detail-title"></h2><p class="presentation" id="detail-size"></p><p class="large-price" id="detail-price"></p><p class="quantity-label">Cantidad</p><div class="quantity"><button type="button" id="detail-minus" aria-label="Restar cantidad">−</button><output id="detail-qty">1</output><button type="button" id="detail-plus" aria-label="Sumar cantidad">+</button></div><button class="detail-add" type="button" id="detail-add">AGREGAR AL CARRITO</button></div></div></dialog>
 
-  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title"><div class="dialog-head"><span class="dialog-label" id="cart-title">Tu carrito</span><button class="close" type="button" data-close="cart-dialog" aria-label="Cerrar">×</button></div><div class="cart-body"><div id="cart-items"></div><div class="total-row"><span>Total</span><strong id="cart-total">$0</strong></div><button class="send-order" id="send-order" type="button" disabled>ENVIAR PEDIDO POR WHATSAPP</button><p class="cart-note">Se abrirá WhatsApp con el detalle del pedido y el total listo para enviar.</p></div></dialog>
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title"><div class="dialog-head"><span class="dialog-label" id="cart-title">Tu carrito</span><button class="close" type="button" data-close="cart-dialog" aria-label="Cerrar">×</button></div><div class="cart-body"><div id="cart-items"></div><div class="total-row"><span>Total</span><strong id="cart-total">$0</strong></div><button class="send-order" id="send-order" type="button" disabled>ENVIAR PEDIDO POR WHATSAPP</button><p class="cart-note">Se abrirá WhatsApp con el resumen del pedido listo para enviar.</p></div></dialog>
 
   <script>
     const products = [
@@ -76,9 +76,9 @@
     document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>document.getElementById(b.dataset.close).close()));
     document.querySelectorAll("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}));
     document.getElementById("send-order").addEventListener("click",()=>{
-      const entries=cartEntries();if(!entries.length)return;let total=0;
-      const lines=entries.map(([id,qty])=>{const p=productById(id);const line=p.price*qty;total+=line;return `- ${p.brand} ${p.size} x ${qty}: ${format(line)}`});
-      const message=`Hola, quiero hacer este pedido en Tu Yerba:\n\n${lines.join("\n")}\n\nTOTAL: ${format(total)}\n\n¿Me confirmás disponibilidad?`;
+      const entries=cartEntries();if(!entries.length)return;
+      const lines=entries.map(([id,qty])=>{const p=productById(id);const size=p.size==="1 kg"?"1kg":p.size==="500 g"?"500gr":p.size.replace(/\s/g,"");return `-x${qty} ${p.brand} (${size})`});
+      const message=`¡Hola! te paso resumen de mi pedido.\n\n${lines.join("\n")}\n\nEspero tu respuesta para coordinar el pago y envio.\n¡Muchas gracias!`;
       window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`,"_blank","noopener,noreferrer");
     });
     renderProducts();renderCart();
