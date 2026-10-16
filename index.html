@@ -22,7 +22,7 @@
 <body>
   <header><div class="wrap topbar"><a class="brand" href="#inicio"><span class="brand-mark">TY</span><span>Tu Yerba</span></a><button class="cart-open" id="open-cart" type="button">Carrito <span class="count" id="cart-count">0</span></button></div></header>
   <main>
-    <section class="wrap hero" id="inicio"><div class="hero-copy"><div class="eyebrow">Baldo · Canarias</div><h1>Yerbas para disfrutar.</h1><p>Elegí tus yerbas, armá el pedido y mandanos el carrito por WhatsApp.</p></div><div class="hero-image"><img src="https://share.zapia.com/oumpgxcfvcq29eall5f60h" alt="Mate preparado con yerba y bombilla"></div></section>
+    <section class="wrap hero" id="inicio"><div class="hero-copy"><div class="eyebrow">Baldo · Canarias</div><h1>Yerbas para disfrutar.</h1><p>Elegí tus yerbas, armá el pedido y mandanos el carrito por WhatsApp.</p></div><div class="hero-image"><img src="assets/mate-hero.jpg" alt="Mate preparado con yerba y bombilla"></div></section>
     <section class="wrap catalog" id="productos"><div class="section-head"><h2>Nuestros productos</h2><p>Precios en pesos argentinos.</p></div><div class="grid" id="product-grid"></div></section>
     <p class="wrap footnote">El pedido se confirma por WhatsApp. No se realiza ningún pago en esta página.</p>
   </main>
@@ -33,10 +33,10 @@
 
   <script>
     const products = [
-      {id:"baldo-1kg", brand:"Baldo", size:"1 kg", price:12000, image:"https://share.zapia.com/x0q7lbdl4nu0744inbrefy", alt:"Yerba Baldo de 1 kg"},
-      {id:"baldo-500g", brand:"Baldo", size:"500 g", price:9000, image:"https://share.zapia.com/1yde7hpsrwxfzu5sua5dl3", alt:"Yerba Baldo de 500 gramos"},
-      {id:"canarias-1kg", brand:"Canarias", size:"1 kg", price:12000, image:"https://share.zapia.com/tidcse0p30vbz6u80auucf", alt:"Yerba Canarias de 1 kg"},
-      {id:"canarias-500g", brand:"Canarias", size:"500 g", price:9000, image:"https://share.zapia.com/9co6pr4cr1sf2yqdr1ck49", alt:"Yerba Canarias de 500 gramos"}
+      {id:"baldo-1kg", brand:"Baldo", size:"1 kg", price:12000, image:"assets/baldo-1kg.jpg", alt:"Yerba Baldo de 1 kg"},
+      {id:"baldo-500g", brand:"Baldo", size:"500 g", price:9000, image:"assets/baldo-500g.jpg", alt:"Yerba Baldo de 500 gramos"},
+      {id:"canarias-1kg", brand:"Canarias", size:"1 kg", price:12000, image:"assets/canarias-1kg.jpg", alt:"Yerba Canarias de 1 kg"},
+      {id:"canarias-500g", brand:"Canarias", size:"500 g", price:9000, image:"assets/canarias-500g.jpg", alt:"Yerba Canarias de 500 gramos"}
     ];
     const waNumber = "543512561680";
     const money = new Intl.NumberFormat("es-AR", {style:"currency", currency:"ARS", maximumFractionDigits:0});
