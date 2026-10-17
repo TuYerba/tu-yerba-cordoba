@@ -17,6 +17,28 @@
     .cart-dialog{width:min(600px,calc(100vw - 24px))}.cart-body{padding:20px}.empty{text-align:center;color:var(--muted);padding:45px 15px;font: .95rem Arial,sans-serif}.cart-item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.cart-name{font-weight:bold;font-size:1rem}.cart-unit{margin-top:4px;color:var(--muted);font: .78rem Arial,sans-serif}.cart-controls{display:flex;align-items:center;gap:8px}.cart-controls button{width:30px;height:30px;border:1px solid var(--line);background:#fff;color:var(--dark);cursor:pointer;font:1rem Arial,sans-serif}.cart-qty{min-width:18px;text-align:center;font:700 .85rem Arial,sans-serif}.cart-line-total{grid-column:1/-1;text-align:right;font:700 .9rem Arial,sans-serif}.remove{grid-column:1/-1;justify-self:end;border:0;background:transparent;color:#8a4f42;text-decoration:underline;cursor:pointer;font: .75rem Arial,sans-serif}.total-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0 15px;font:700 1.1rem Arial,sans-serif}.total-row strong{font-size:1.3rem;color:var(--dark)}.send-order{width:100%;min-height:56px;border:0;background:var(--green);color:#fff;cursor:pointer;font:700 .85rem Arial,sans-serif;letter-spacing:.03em}.send-order:hover{background:#285f36}.send-order:disabled{opacity:.45;cursor:not-allowed}.cart-note{margin:12px 0 0;color:var(--muted);text-align:center;font: .76rem/1.4 Arial,sans-serif}
     @media(max-width:850px){.hero{min-height:340px}.hero-copy{width:65%;min-height:340px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:560px){.wrap{width:calc(100% - 24px)}.topbar{height:64px}.brand{font-size:1.2rem}.brand-mark{width:34px;height:34px}.hero{margin-top:12px;min-height:340px}.hero-copy{width:100%;min-height:340px;padding:30px 23px}.hero h1{font-size:3.15rem}.hero p{font-size:.92rem}.catalog{padding:43px 0 20px}.section-head{align-items:flex-start;flex-direction:column;gap:6px}.grid{gap:10px}.product-photo{height:176px;padding:8px}.product:first-child .product-photo img{width:76%;height:76%}.product-info{padding:12px}.product h3{font-size:1.15rem}.price{font-size:.96rem}.product-actions{gap:6px;padding:0 10px 11px}.detail-btn,.add-btn{font-size:.64rem;min-height:40px}.detail-layout{grid-template-columns:1fr}.detail-picture{min-height:250px;padding:12px}.detail-picture img{height:230px}.detail-copy{padding:22px}.detail-copy h2{font-size:2.5rem}.detail-copy .large-price{margin-bottom:20px}.cart-body{padding:15px}.cart-item{grid-template-columns:1fr auto}}
+    @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes settleImage{from{opacity:.7;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}
+    @keyframes dialogIn{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .hero-copy>*{animation:riseIn .65s cubic-bezier(.2,.7,.2,1) both}
+    .hero-copy .eyebrow{animation-delay:.06s}.hero-copy h1{animation-delay:.14s}.hero-copy p{animation-delay:.22s}
+    .hero-image img{animation:settleImage .9s ease-out both}
+    .section-head{animation:riseIn .55s ease both}
+    .product{transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease;animation:riseIn .55s ease both}
+    .product:nth-child(2){animation-delay:.06s}.product:nth-child(3){animation-delay:.12s}.product:nth-child(4){animation-delay:.18s}
+    .product:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(36,43,29,.12);border-color:#c9c7b8}
+    .product-photo img{transition:transform .32s ease}.product:hover .product-photo img{transform:scale(1.035)}
+    .brand-mark,.cart-open,.detail-btn,.add-btn,.detail-add,.send-order,.quantity button,.cart-controls button{transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+    .brand:hover .brand-mark{transform:rotate(-8deg) scale(1.06)}
+    .cart-open:hover,.detail-btn:hover,.add-btn:hover,.detail-add:hover,.send-order:not(:disabled):hover{transform:translateY(-2px)}
+    .detail-btn:active,.add-btn:active,.detail-add:active,.send-order:not(:disabled):active,.cart-controls button:active,.quantity button:active{transform:scale(.97)}
+    .quantity button:hover,.cart-controls button:hover{background:var(--cream)}
+    dialog[open]{animation:dialogIn .24s ease-out both}
+    dialog[open]::backdrop{animation:backdropIn .2s ease-out both}
+    @keyframes backdropIn{from{background:rgba(26,32,24,0)}to{background:rgba(26,32,24,.55)}}
+    .detail-picture img{transition:transform .35s ease}.detail-picture img:hover{transform:scale(1.025)}
+    .detail-btn:focus-visible,.add-btn:focus-visible,.detail-add:focus-visible,.send-order:focus-visible,.cart-open:focus-visible{outline:3px solid #a8b17e;outline-offset:3px}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
